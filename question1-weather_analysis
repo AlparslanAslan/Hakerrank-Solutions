@@ -1,3 +1,4 @@
+
 ;with monthly_avg_temp(_month,avg_monthly)as (
 select SUBSTRING(record_date,5,2) , convert(int,Round(avg(cast(data_value as decimal(6,2))),0)) 
 from temperature_records
