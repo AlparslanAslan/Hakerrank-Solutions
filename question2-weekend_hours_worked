@@ -1,8 +1,8 @@
 ;with attendance_weekend(_month,emp_id,worked_hour)
 as
-(select Day(cast (_timestamp as DATETIME)),emp_id,DATEDIFF(hour,min(_timestamp),max(_timestamp)) 
-from (select * from attendance WHERE datepart(dw,cast(_timestamp as DATETIME) ) in (1,7)) as aw
-group by Day(cast (_timestamp as DATETIME) ) ,emp_id)
+(select Day(cast (timestamp as DATETIME)),emp_id,DATEDIFF(hour,min(timestamp),max(timestamp)) 
+from (select * from attendance WHERE datepart(dw,cast(timestamp as DATETIME) ) in (1,7)) as aw
+group by Day(cast (timestamp as DATETIME) ) ,emp_id)
 
 select emp_id,sum(worked_hour) sum_of_worked_hour
 from attendance_weekend
